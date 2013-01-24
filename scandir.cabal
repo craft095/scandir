@@ -1,0 +1,14 @@
+Name: scandir
+Version: 0.0.1
+Copyright: Dmitry Kulagin
+License: BSD3
+License-File: LICENSE
+Author: Dmitry Kulagin
+Category: Development
+build-type: Simple
+cabal-version: >=1.2
+extra-source-files: README
+
+Executable scandir
+    Main-Is: ScanDir.hs
+    Build-Depends: base < 6, bytestring, directory, filepath, optparse-applicative
