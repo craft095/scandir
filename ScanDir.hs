@@ -14,7 +14,7 @@ scan ScanOpts {..} = do
     -- let f d = d </> ".." </> template
     -- print $ take limit $ iterate f dir
     xs <- filterM doesFileExist $ take limit $ map (\i-> dir </> i </> template) $ iterate (".." </>) "."
-    return $ safeHead xs
+    maybe (return "") canonicalizePath $ safeHead xs
 
 data ScanOpts = ScanOpts
   { template :: String
@@ -34,7 +34,7 @@ mkOpts = ScanOpts
      <*> argument str ( metavar "FILE" )
          
 main :: IO ()
-main = execParser opts >>= scan >>= putStrLn . fromMaybe ""
+main = execParser opts >>= scan >>= putStrLn
   where
     opts = info (helper <*> mkOpts)
       ( fullDesc    

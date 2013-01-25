@@ -1,0 +1,8 @@
+#!/bin/bash
+source ~/bin/scan-sets
+if [ "$LOCAL_PATH" != "" ]; then
+    PATH=$LOCAL_PATH:$PATH
+fi
+
+$*
+

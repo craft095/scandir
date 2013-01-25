@@ -1,0 +1,11 @@
+#!/bin/bash
+source ~/bin/scan-sets
+if [ "$GHC_PATH" = "" ]; then
+    export GHC="ghc"
+    export GHCI="ghci"
+else
+    export GHC="$GHC_PATH/ghc"
+    export GHCI="$GHC_PATH/ghci"
+fi
+$GHC $GHC_FLAGS $*
+

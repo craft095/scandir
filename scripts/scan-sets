@@ -1,0 +1,8 @@
+#!/bin/bash
+export PROJFILE=`~/bin/scandir --limit 10 --template project.sh .`
+
+if [ "$PROJFILE" != "" ]; then
+    export PROJDIR=`dirname $PROJFILE`
+    source $PROJFILE
+fi
+
